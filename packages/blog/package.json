@@ -5,14 +5,21 @@
   "author": "yanan5 <obrnarayanan@gmail.com>",
   "homepage": "https://github.com/yanan5/lerna-monorepo-starter#readme",
   "license": "ISC",
-  "main": "lib/blog.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "dependencies": {
+    "@lerna-monorepo/shared-ui": "^1.0.0",
+    "gatsby": "^1.9.247",
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-react-next": "^1.0.11",
+    "gatsby-react-router-scroll": "^1.0.18",
+    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-json": "^1.0.20",
+    "react": "^16.4.2",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "4.3.1",
+    "serve": "^10.0.0",
+    "styled-components": "^3.3.3"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -21,7 +28,9 @@
     "url": "git+https://github.com/yanan5/lerna-monorepo-starter.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "start": "serve public/",
+    "build": "gatsby build",
+    "develop": "gatsby develop"
   },
   "bugs": {
     "url": "https://github.com/yanan5/lerna-monorepo-starter/issues"
