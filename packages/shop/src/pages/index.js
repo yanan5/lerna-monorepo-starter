@@ -1,32 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { ItemCard, ItemCardWrapper } from '../../packages/shared-ui'
+import {Button} from '@lerna-monorepo/shared-ui'
 
-const IndexPage = ({ data }) => {
-  const edges = data.allShoppingJson.edges
+export default ({ pathContext: { data }}) => {
+  if (!data) {
+    return null
+  }
 
-  return(
+  return (
     <div>
-      <h1>Hi people</h1>
-      <ItemCardWrapper>
-        {edges && edges.map(edge => <ItemCard key={edge.node.id} data={edge.node} slug="item" />)}
-      </ItemCardWrapper>
-      <Link to="/blog/">Go to Blog</Link>
+      <h1>{data.title}</h1>
+      <p>{data.content}</p>
+      <Button>Purchase</Button>
+      <Link to={process.env.SHOP_URL}>Back to Shop</Link>
     </div>
   )
 }
-
-export default IndexPage
-
-export const query = graphql`
-  query ShoppingPageQuery {
-    allShoppingJson {
-      edges {
-        node {
-          id
-          title
-        }
-      }
-    }
-  }
-`
